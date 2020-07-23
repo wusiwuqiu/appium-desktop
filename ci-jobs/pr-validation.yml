@@ -1,0 +1,18 @@
+# Runs on pull requests
+jobs:
+- template: templates/pr-validation.yml
+  parameters:
+    pool:
+      vmImage: 'macOS-10.14'
+    name: 'osx_build'
+    e2e: true
+- template: templates/pr-validation.yml
+  parameters:
+    pool: 'Hosted Windows 2019 with VS2019'
+    name: 'windows_build'
+    e2e: true
+- template: templates/pr-validation.yml
+  parameters:
+    pool: 'Hosted Ubuntu 1604'
+    name: 'linux_build'
+    xvfb: true
